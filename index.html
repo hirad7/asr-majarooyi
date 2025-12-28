@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <title>عصر ماجراجویی — فصل اول: بیداری</title>
+  <meta name="theme-color" content="#0b0b12"/>
+  <!-- Telegram Mini App SDK -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="sigil" aria-hidden="true"></div>
+        <div>
+          <div class="title">عصر ماجراجویی</div>
+          <div class="subtitle">فصل اول: بیداری</div>
+        </div>
+      </div>
+
+      <div class="top-controls">
+        <button id="audioToggle" class="icon" title="صدا">🔇</button>
+      </div>
+    </header>
+
+    <main>
+      <!-- Intro -->
+      <section class="screen active" id="s-intro">
+        <div class="panel glow">
+          <h2>آغاز</h2>
+          <p class="narration">
+            جهان، نه با آتش، که با فراموشی فرو ریخت…
+            و اکنون، آنان که جرأت انتخاب دارند، فراخوانده شده‌اند.
+          </p>
+          <div class="hint">برای شروع، روی «قدم می‌گذارم» بزن.</div>
+          <button class="primary" data-next="s-step1">قدم می‌گذارم</button>
+        </div>
+      </section>
+
+      <!-- Step 1 -->
+      <section class="screen" id="s-step1">
+        <div class="panel">
+          <h3>قدم اول</h3>
+          <p>تو در دهانه‌ی غار ایستاده‌ای. نور نفس می‌کشد.</p>
+          <div class="choices">
+            <button data-score='{"ریسک":2,"سرعت":2}' data-next="s-test">جلو می‌روم</button>
+            <button data-score='{"ریسک":-1,"سرعت":-1}' data-next="s-test">مکث می‌کنم</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Hidden Test -->
+      <section class="screen" id="s-test">
+        <div class="panel">
+          <h3>آزمون پنهان</h3>
+          <p>زمان کم است. انتخاب کن.</p>
+          <div class="choices">
+            <button data-score='{"اخلاق":2}' data-next="s-clans">حقیقت</button>
+            <button data-score='{"راهبرد":2}' data-next="s-clans">فریب</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Clan selection -->
+      <section class="screen" id="s-clans">
+        <div class="panel">
+          <h3>انتخاب خاندان</h3>
+          <p class="muted">هر خاندان یک سبکِ بقاست؛ نه یک اسم.</p>
+          <div class="cards">
+            <article class="card" data-clan="تهمورث">
+              <div class="avatar a1" aria-hidden="true"></div>
+              <h4>تهمورث</h4>
+              <p>قدرت، مسئولیت می‌آورد.</p>
+              <button class="secondary pick" data-next="s-challenge">می‌پذیرم</button>
+            </article>
+
+            <article class="card" data-clan="سیمرغ">
+              <div class="avatar a2" aria-hidden="true"></div>
+              <h4>سیمرغ</h4>
+              <p>خرد، راه را روشن می‌کند.</p>
+              <button class="secondary pick" data-next="s-challenge">می‌پذیرم</button>
+            </article>
+
+            <article class="card" data-clan="کاوه">
+              <div class="avatar a3" aria-hidden="true"></div>
+              <h4>کاوه</h4>
+              <p>ایستادگی، سرنوشت می‌سازد.</p>
+              <button class="secondary pick" data-next="s-challenge">می‌پذیرم</button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Challenge -->
+      <section class="screen" id="s-challenge">
+        <div class="panel">
+          <h3>چالش ریسک–پاداش</h3>
+          <p>مسیر کوتاه و خطرناک یا مسیر امن و طولانی؟</p>
+          <div class="choices">
+            <button data-score='{"ریسک":3,"پاداش":2}' data-next="s-end">کوتاه و خطرناک</button>
+            <button data-score='{"ریسک":-1,"پاداش":1}' data-next="s-end">امن و طولانی</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- End -->
+      <section class="screen" id="s-end">
+        <div class="panel glow">
+          <h2>تو انتخاب شدی…</h2>
+          <p>اما هنوز نمی‌دانی برای چه.</p>
+          <div id="summary" class="summary"></div>
+          <button class="primary" id="restart">شروع دوباره</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <small>نسخه‌ی دمو — مناسب «مینی‌اپ تلگرام»</small>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
